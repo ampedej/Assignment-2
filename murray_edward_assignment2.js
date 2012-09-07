@@ -6,40 +6,37 @@
 // Fantasy Football Assignment 2
 
 //---Set variables
-
-var seatsAvaialable = 3;
+var adjectives = [ 
+	" needs to be picked up.", 
+	" also needs a ride.",
+	" doesn't have his car, have to pick him up too... "
+];
 var passengers = "Have all passengers, lets head to the party";
+var carHolds = 4,
+	carHas = 4;
 
 //---Procedure Function
 
 function goingToParty(peopleGoing){
 	if (peopleGoing <= 10) {
-		partyFun = "Looks like less than 10 people are going to the draft party. The party won't be fun with only " + peopleGoing + " people going...." ;
+		console.log("Looks like less than 10 people are going to the draft party. The party won't be fun with only " + peopleGoing + " people going....") ;
 	}else{
-		partyFun = "Looks like " + peopleGoing + " people are going to the draft party. Do i have room to pick people up on my way?";			
+		console.log ("Looks like " + peopleGoing + " people are going to the draft party. Do i have room to pick people up on my way?");			
 	}
-	return(partyFun);
 };
 
 //---String Function
 
-function canPickup(haveRoom, noRoom){
-	var pickUp = "yes";
-		if (pickUp === "yes") {
-			console.log ("Yes! " + haveRoom);
-		} else {
-			console.log ("No " + noRoom);
-	}
-}
+function canPickup(string1, string2){
+	var seatsAvaialable = 3,
+		pickUp;
+	pickUp = "Yes, " + string1 + seatsAvaialable + string2;
+	return pickUp;
+};		
 
 //---Array Function
 
-function peopleToPickup (toPickup, pickUpNames){
-	var adjectives = [ 
-	" needs to be picked up.", 
-	" also needs a ride.",
-	" doesn't have his car, have to pick him up too... "
-];
+function peopleToPickup(toPickup, pickUpNames){
 for (var i = 0; i < toPickup; i++) {
 	console.log ( pickUpNames[i] + adjectives[i]);	
 	}
@@ -47,7 +44,7 @@ for (var i = 0; i < toPickup; i++) {
 
 //---Number Function
 
-function pickedUp (peopleLeft){
+function pickedUp(peopleLeft){
 	var gotPass = 0;
 	while (peopleLeft > 0) {
 		console.log("Picked up " + gotPass + " partygoers. I have " + peopleLeft + " passengers left to pick up");
@@ -57,21 +54,33 @@ function pickedUp (peopleLeft){
 };
 
 //---Boolean Function*/
-function allPassengers (haveAll, dontHaveAll) {
-	var all = true; {
-	if (all = true) {
-		console.log (haveAll);
+function getAllPassengers(carHolds, carHas){
+	if (carHolds ^ carHas) {
+		return true;
 	} else {
-		console.log (dontHaveAll);
+		return false;
 	}
-}
 };
-	
+
 
 //----Main Code - Function calls
 
-console.log (goingToParty(11));
-canPickup ("I have room to pick up " + seatsAvaialable + " people up on my way.", "i don't have any room")
+//Procedure
+goingToParty(11)
+
+//String
+var willPickUp = canPickup ("I have room to pick up ", " people on my way");
+console.log (willPickUp)
+
+//Array
 peopleToPickup (3, ["Kyle", "Jesse", "Joe"])
+
+//Numer
 pickedUp (3)
-allPassengers (passengers)
+
+//Boolean
+if (canPickup(4,4)) {
+	console.log ("All passengers picked up. Let's head to the party!"); 
+} else {
+	console.log ("Still more passengers to pickup");
+}
