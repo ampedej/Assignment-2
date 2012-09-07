@@ -8,7 +8,8 @@
 //---Set variables
 
 var seatsAvaialable = 3;
-var passengers = "Have all passengers, lets head to the party"
+var passengers = "Have all passengers, lets head to the party";
+
 //---Procedure Function
 
 function goingToParty(peopleGoing){
@@ -69,8 +70,9 @@ function allPassengers (haveAll, dontHaveAll) {
 	
 
 //----Main Code - Function calls
+
 console.log (goingToParty(11));
 canPickup ("I have room to pick up " + seatsAvaialable + " people up on my way.", "i don't have any room")
 peopleToPickup (3, ["Kyle", "Jesse", "Joe"])
 pickedUp (3)
-allPassengers ("Have all passengers, lets head to the party")
+allPassengers (passengers)
