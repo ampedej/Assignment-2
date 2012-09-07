@@ -53,8 +53,7 @@ function pickedUp (peopleLeft){
 		console.log("Picked up " + gotPass + " partygoers. I have " + peopleLeft + " passengers left to pick up");
 		peopleLeft--;
 		gotPass ++;
-	}
-	//console.log("All passengers picked up. Let's head to the party!")	
+	}	
 };
 
 //---Boolean Function*/
