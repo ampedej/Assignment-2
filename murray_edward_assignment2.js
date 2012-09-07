@@ -11,9 +11,9 @@ var adjectives = [
 	" also needs a ride.",
 	" doesn't have his car, have to pick him up too... "
 ];
-var passengers = "Have all passengers, lets head to the party";
-var carHolds = 4,
-	carHas = 4;
+var haveAll = "Have all passengers, lets head to the party",
+	dontHaveAll = "Still more passengers to be picked up"
+;
 
 //---Procedure Function
 
@@ -48,17 +48,18 @@ function pickedUp(peopleLeft){
 	var gotPass = 0;
 	while (peopleLeft > 0) {
 		console.log("Picked up " + gotPass + " partygoers. I have " + peopleLeft + " passengers left to pick up");
-		peopleLeft--;
-		gotPass ++;
-	}	
+		peopleLeft = peopleLeft-1;
+		gotPass ++
+	}
+	return peopleLeft;
 };
 
 //---Boolean Function*/
-function getAllPassengers(carHolds, carHas){
-	if (carHolds ^ carHas) {
-		return true;
+function getAllPassengers(carHas, carHolds){
+	if (carHas != carHolds) {
+		return dontHaveAll;
 	} else {
-		return false;
+		return haveAll;
 	}
 };
 
@@ -73,14 +74,12 @@ var willPickUp = canPickup ("I have room to pick up ", " people on my way");
 console.log (willPickUp)
 
 //Array
-peopleToPickup (3, ["Kyle", "Jesse", "Joe"])
+peopleToPickup(3, ["Kyle", "Jesse", "Joe"])
 
-//Numer
-pickedUp (3)
+//Number
+ var test = pickedUp(3)
+ console.log("Picked up 3 passengers. I have " + test + " people left to pick up");
 
 //Boolean
-if (canPickup(4,4)) {
-	console.log ("All passengers picked up. Let's head to the party!"); 
-} else {
-	console.log ("Still more passengers to pickup");
-}
+var passengers = getAllPassengers(4,4);
+	console.log (passengers);
